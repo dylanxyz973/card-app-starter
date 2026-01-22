@@ -1,7 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import CardForm from "../components/CardForm";
-import { addCard } from "../services/api";
+
 
 export default function AddCard() {
   /* TODO: Complete the AddCard page
