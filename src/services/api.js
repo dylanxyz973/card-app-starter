@@ -5,7 +5,7 @@
  * 2) Set: REACT_APP_API_URL=https://YOUR-BACKEND.onrender.com
  * 3) Restart `npm start`
  */
-const API_URL = process.env.REACT_APP_API_URL || "https://w8demo.onrender.com/allcards";
+const API_URL = process.env.REACT_APP_API_URL || "https://w8demo.onrender.com";
 
 /**
  * TODO: If your backend routes differ, update the paths here.
