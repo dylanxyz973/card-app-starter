@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardForm from "../components/CardForm";
 import { getCards, updateCard } from "../services/api";
-import { Link } from "react-router-dom";
+
 
 export default function EditCard() {
   /* TODO: Complete the EditCard page
