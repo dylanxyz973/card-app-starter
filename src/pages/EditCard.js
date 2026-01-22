@@ -12,8 +12,13 @@ export default function EditCard() {
     - style as a form UI */
     const { id } = useParams();
     const navigate = useNavigate();
+    
 
     const [card, setCard] = useState(null);
+    const [values, setValues] = useState({
+      card_name: "",
+      card_pic: "",
+    });
     const [loading, setLoading] = useState(true);
     const [busy, setBusy] = useState(false);
     const [error, setError] = useState(null);
@@ -40,6 +45,20 @@ export default function EditCard() {
       loadCard();
     }, [id]);
 
+    useEffect(() => {
+      if (card) {
+        setValues({
+          card_name: card.card_name,
+          card_pic: card.card_pic,
+        });
+      }
+    }, [card]);
+
+    function handleChange(e) {
+      const { name, value } = e.target;
+      setValues((prev) => ({ ...prev, [name]: value }));
+    }
+
     async function handleSubmit(updatedData) {
       try {
         setBusy(true);
@@ -52,20 +71,18 @@ export default function EditCard() {
       }
     }
 
-    if (loading) {
-      return <main>Loading card...</main>;
-    }
-
-    if (error) {
-      return <main>{error}</main>;
-    }
+    if (loading) { return <main>Loading card...</main>; }
+    if (error) { return <main>{error}</main>; }
 
   return <main className="form-container">
       <h1>Edit Card</h1>
       <CardForm
-        initialData={card}
+        values={values}
+        onChange={handleChange}
         onSubmit={handleSubmit}
         busy={busy}
+        error={error}
+        submitText="Update Card"
       />
   </main>;
 }
