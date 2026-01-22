@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export default function Home() {
   /* TODO: Design and complete the Home page
@@ -7,5 +7,6 @@ export default function Home() {
     - style as a landing page */
   return <main>
     <h1>Home</h1>
+    <Link to="/cards">Go to Cards</Link>
   </main>;
 }

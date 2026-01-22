@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import { getCards, deleteCard } from "../services/api";
 
@@ -8,7 +9,8 @@ export default function CardList() {
     - delete button calling handleDelete with the card object
     - handle loading, busy, and error states
     - style as a grid UI */
-
+    
+    const navigate = useNavigate();
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);   
     const [busyId, setBusyId] = useState(null); 
@@ -54,6 +56,7 @@ export default function CardList() {
         <Card
           key={card.id}
           card={card}
+          onClick={() => navigate(`/cards/${card.id}/edit`)}
           onDelete={() => handleDelete(card)}
           disabled={busyId === card.id}
         />
