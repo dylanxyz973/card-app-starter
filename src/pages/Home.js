@@ -6,6 +6,6 @@ export default function Home() {
     - link to Cards page
     - style as a landing page */
   return <main>
-    <h1></h1>
+    <h1>Home</h1>
   </main>;
 }
